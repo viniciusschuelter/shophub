@@ -1,0 +1,6 @@
+
+  <div class="flex flex-wrap grow px-5">
+    <app-product-card *ngFor="let product of productsService.products$ | async" class="p-4"
+                      [product]="product"
+    ></app-product-card>
+  </div>

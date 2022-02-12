@@ -1,0 +1,11 @@
+
+
+:host {
+
+  .product-detail-container {
+    display: grid;
+    flex-grow: 1;
+    background-image: radial-gradient(circle, #ffad7d 0%, #fff 75%);
+    border-radius: 36px;
+  }
+}

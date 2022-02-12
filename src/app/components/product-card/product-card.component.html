@@ -1,0 +1,6 @@
+
+<div class="product-card flex flex-col cursor-pointer w-100" (click)="goToProductDetails()">
+  <img [src]="product.image.thumbnail" [alt]="product.name">
+  <div class="product-card__name text-lg font-bold mt-4 truncate px-5">{{product.name}}</div>
+  <div class="product-card__price text-xl font-medium mt-3 truncate">{{product.retailPrice | price}}</div>
+</div>

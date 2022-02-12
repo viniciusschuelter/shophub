@@ -1,0 +1,36 @@
+
+
+<div class="product-detail-container grid-cols-10 mx-5 p-10" *ngIf="product$ | async as product">
+  <div class="col-span-3">
+    <h3 class="text-xl text-[#3f51b5] font-bold">{{product.name}}</h3>
+    <span>{{product.story || product.name}}</span>
+    <div class="flex">
+      preview
+    </div>
+  </div>
+
+  <div class="col-span-4">
+    <img [src]="product.image.thumbnail" [alt]="product.name">
+  </div>
+
+
+  <div class="col-span-3 text-black font-bold">
+    <div class="flex items-center mb-5">
+      <label class="mr-3">Review:</label>
+      <app-rating [(rating)]="product.rating"></app-rating>
+    </div>
+
+    <div class="flex items-center mb-5">
+      <label class="mr-3">Color:</label>
+      <app-colorpicker [(color)]="product.color"></app-colorpicker>
+    </div>
+
+    <div class="flex items-center mb-5">
+      <label>Size:</label>
+    </div>
+
+    <button class="bg-gray-900 hover:bg-gray-800 rounded-xl px-8 py-3" (click)="addToCart(product)">
+      <span class="text-yellow-400 font-medium">Add to cart</span>
+    </button>
+  </div>
+</div>

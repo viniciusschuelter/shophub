@@ -1,0 +1,23 @@
+
+
+:host {
+
+  .product-card {
+    background-color: #fff;
+    background-image: radial-gradient(circle, #ffad7d 0%, #fff 75%);
+    border-radius: 36px;
+    width: 360px;
+    height: 480px;
+    text-align: center;
+
+
+    &__name, &__price {
+      color: #3f51b5;
+    }
+  }
+
+  :hover {
+    transition: ease-in-out;
+    transform: scale(1.05);
+  }
+}

@@ -1,0 +1,22 @@
+
+<div class="flex items-center justify-between p-10">
+  <div class="flex items-center" routerLink="home">
+    <app-animated-button class="mr-3">
+      <img class="w-6" src="../../../assets/icons/icon-menu.svg">
+    </app-animated-button>
+    <h3 class="font-bold text-3xl">shophub</h3>
+  </div>
+
+  <app-menu-bar></app-menu-bar>
+
+  <app-animated-button (click)="goToCart()">
+    <ng-container *ngIf="cartService.cart$ | async as cart">
+      <div class="w-5 h-5 rounded-full flex items-center justify-center bg-yellow-500 absolute -top-2 -right-2"
+           *ngIf="cart?.orderProducts?.length">
+        <span class="font-medium">{{cart?.orderProducts?.length}}</span>
+      </div>
+    </ng-container>
+
+    <img class="w-6" src="../../../assets/icons/icon-cart.svg">
+  </app-animated-button>
+</div>

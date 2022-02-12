@@ -1,0 +1,37 @@
+
+
+
+:host {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  background-image: linear-gradient(to right, #ffdfb0, #ffdfb0, #ffc288, #ff8d3e , #ffc288, #ffdfb0, #ffdfb0);
+  //background-image: linear-gradient(to right, #ffdfb0 40%, #ff8d3e 20%, #ffdfb0 40%);
+
+  .root-container {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    position: relative;
+    margin: 64px auto;
+    background: #fff1bd;
+    border: 8px solid #fff;
+    border-radius: 36px;
+
+    @screen md {
+      max-width: 580px;
+    }
+
+    @screen lg {
+      max-width: 990px;
+    }
+
+    @screen xl {
+      max-width: 990px;
+    }
+
+    @screen 2xl {
+      max-width: 1380px;
+    }
+  }
+}
