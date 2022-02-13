@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, OnDestroy} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Subscription} from "rxjs";
 import {ProductInterface} from "./models/product.model";
@@ -11,7 +11,7 @@ import {Router} from "@angular/router";
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnDestroy {
 
   private subscriber: Subscription = new Subscription();
 
@@ -30,5 +30,9 @@ export class AppComponent {
       this.http.get<ProductInterface>('http://localhost:4200/app/mocks/products.json').subscribe(products => {
       })
     )
+  }
+
+  ngOnDestroy() {
+    this.subscriber.unsubscribe();
   }
 }

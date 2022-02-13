@@ -1,3 +1,4 @@
+import {ProductInterface} from "./product.model";
 
 
 export class CartModel {
@@ -7,8 +8,7 @@ export class CartModel {
   orderProducts?: CartProductOrder[] = []
 }
 
-export interface CartProductOrder {
-  productId: string;
+export interface CartProductOrder extends ProductInterface {
   color: string;
   size: number;
   quantity: number

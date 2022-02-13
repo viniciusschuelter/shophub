@@ -20,9 +20,9 @@ export class CartService {
 
   addToCart(product: CartProductOrder): void {
     const cart = this.getCart();
-    if (cart.orderProducts?.find(prd => prd.productId === product.productId)) {
+    if (cart.orderProducts?.find(prd => prd.id === product.id)) {
       cart.orderProducts?.map(prd => {
-        if (prd.productId === product.productId) {
+        if (prd.id === product.id) {
           prd.quantity += 1;
           this.cartSubject.next(cart);
         }
@@ -32,6 +32,27 @@ export class CartService {
       cart.orderProducts.push(product);
       this.cartSubject.next({id: 'idCartTest', userId: 'idUsertTest', orderProducts: cart.orderProducts})
     }
+  }
+
+  removeOneFromCart(product: CartProductOrder): void {
+    const cart = this.getCart();
+    // @ts-ignore
+    if (cart.orderProducts?.find(prd => prd.id === product.id)?.quantity > 1) {
+      cart.orderProducts?.map(prd => {
+        if (prd.id === product.id) {
+          prd.quantity -= 1;
+          this.cartSubject.next(cart);
+        }
+      })
+    } else {
+      this.removeFromCart(product);
+    }
+  }
+
+  removeFromCart(product: CartProductOrder): void {
+    const cart = this.getCart();
+    cart.orderProducts = cart.orderProducts?.filter(prd => prd.id !== product.id)
+    this.cartSubject.next(cart);
   }
 
 }

@@ -32,6 +32,6 @@ export class ProductDetailsComponent implements OnInit {
   }
 
   addToCart(prd: ProductInterface): void {
-    this.cartService.addToCart({productId: prd.id, quantity: 1, color: 'red', size: 37})
+    this.cartService.addToCart({...prd, quantity: 1, color: 'red', size: 37})
   }
 }
