@@ -5,6 +5,7 @@ import {pipe, map, combineLatest} from "rxjs";
 import {CartService} from "../../services/cart.service";
 import {ProductInterface} from "../../models/product.model";
 import {Observable} from "rxjs";
+import {ToastrService} from "ngx-toastr";
 
 @Component({
   selector: 'app-product-details',
@@ -23,7 +24,8 @@ export class ProductDetailsComponent implements OnInit {
   constructor(
     private activatedRoute: ActivatedRoute,
     private productsService: ProductsService,
-    public cartService: CartService
+    public cartService: CartService,
+    private toastr: ToastrService
   ) {
 
   }
@@ -32,6 +34,7 @@ export class ProductDetailsComponent implements OnInit {
   }
 
   addToCart(prd: ProductInterface): void {
-    this.cartService.addToCart({...prd, quantity: 1, color: 'red', size: 37})
+    this.cartService.addToCart({...prd, quantity: 1, color: 'red', size: 37});
+    this.toastr.success('This product is added to your cart', 'Successful');
   }
 }

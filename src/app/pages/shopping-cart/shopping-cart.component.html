@@ -1,9 +1,9 @@
 <ng-container *ngIf="cartService.cart$ | async as cart">
   <ng-container *ngIf="cart?.orderProducts?.length else cartEmpty">
-    <div class="container p-8 mx-auto">
+    <div class="container md:p-8 p-4 bg-orange-100 rounded-2xl mx-auto">
       <div class="w-full overflow-x-auto">
         <table class="w-full shadow-inner">
-          <thead class=" rounded-t-lg">
+          <thead>
           <tr class="bg-orange-200">
             <th class="px-6 py-3 font-bold whitespace-nowrap">Image</th>
             <th class="px-6 py-3 font-bold whitespace-nowrap">Product</th>
@@ -13,18 +13,16 @@
           </tr>
           </thead>
           <tbody>
-          <tr *ngFor="let product of cart.orderProducts">
+          <tr class="text-center" *ngFor="let product of cart.orderProducts">
             <td>
               <div class="flex justify-center">
                 <img class="w-16" [src]="product.image.thumbnail" [alt]="product.name">
               </div>
             </td>
-            <td class="p-4 px-6 text-center whitespace-nowrap">
-              <div class="flex flex-col items-center justify-center truncate">
-                <h3>{{product.name}}</h3>
-              </div>
+            <td>
+              <div class="flex flex-col items-center justify-center truncate">{{product.name}}</div>
             </td>
-            <td class="p-4 px-6 text-center whitespace-nowrap">
+            <td>
               <div class="flex items-center justify-center">
                 <span class="text-2xl font-black text-red-600 cursor-pointer"
                       (click)="cartService.removeOneFromCart(product)">
@@ -37,10 +35,10 @@
                 </span>
               </div>
             </td>
-            <td class="p-4 px-6 text-center whitespace-nowrap">
+            <td>
               {{product.retailPrice | price}}
             </td>
-            <td class="p-4 px-6 text-center whitespace-nowrap">
+            <td>
               <img tooltip="Remove product" class="w-6 text-red-600 cursor-pointer"
                    (click)="cartService.removeFromCart(product)"
                    src="../../../assets/icons/icon-trash.svg">

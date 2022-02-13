@@ -14,20 +14,20 @@
     flex-grow: 1;
     position: relative;
     margin: 64px auto;
-    background: #fff1bd;
+    background: rgb(254 249 195);
     border: 8px solid #fff;
     border-radius: 36px;
 
     @screen md {
-      max-width: 580px;
+      max-width: 785px;
     }
 
     @screen lg {
-      max-width: 990px;
+      max-width: 785px;
     }
 
     @screen xl {
-      max-width: 990px;
+      max-width: 1080px;
     }
 
     @screen 2xl {

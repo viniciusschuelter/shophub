@@ -7,5 +7,22 @@
     flex-grow: 1;
     background-image: radial-gradient(circle, #ffad7d 0%, #fff 75%);
     border-radius: 36px;
+    align-items: center;
+
+    %clamp {
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+    }
+
+    .product-card__name {
+      -webkit-line-clamp: 2;
+      @extend %clamp;
+    }
+
+    .product-card__desc {
+      -webkit-line-clamp: 3;
+      @extend %clamp;
+    }
   }
 }

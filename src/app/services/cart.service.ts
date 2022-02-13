@@ -1,8 +1,8 @@
 import {Injectable} from "@angular/core";
 import {filter} from "rxjs/operators";
 import {BehaviorSubject} from "rxjs";
-import {ProductInterface} from "../models/product.model";
 import {CartModel, CartProductOrder} from "../models/cart.model";
+import {ToastrService} from "ngx-toastr";
 
 
 @Injectable({providedIn: 'root'})
@@ -12,6 +12,10 @@ export class CartService {
   private cartSubject = new BehaviorSubject<CartModel>({});
 
   public readonly cart$ = this.cartSubject.asObservable().pipe(filter(data => !!data));
+
+  constructor(
+    private toastr: ToastrService
+  ) { }
 
 
   getCart(): CartModel {
@@ -51,7 +55,8 @@ export class CartService {
 
   removeFromCart(product: CartProductOrder): void {
     const cart = this.getCart();
-    cart.orderProducts = cart.orderProducts?.filter(prd => prd.id !== product.id)
+    cart.orderProducts = cart.orderProducts?.filter(prd => prd.id !== product.id);
+    this.toastr.warning('This product was removed from your cart', 'Removed product');
     this.cartSubject.next(cart);
   }
 

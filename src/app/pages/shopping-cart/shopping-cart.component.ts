@@ -1,6 +1,8 @@
 import {ChangeDetectorRef, Component, OnDestroy, OnInit} from '@angular/core';
 import {CartService} from "../../services/cart.service";
 import {Subscription} from "rxjs";
+import {CartProductOrder} from "../../models/cart.model";
+import {ToastrService} from "ngx-toastr";
 
 @Component({
   selector: 'app-shopping-cart',

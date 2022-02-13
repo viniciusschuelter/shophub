@@ -7,7 +7,9 @@ import { Router} from "@angular/router";
     <div class="flex items-center font-bold text-black">
       <span class="text-white">Home</span>
       <span class="mx-2">/</span>
-      <span class="capitalize">{{(router.routerState.snapshot.url | replace: '/' : '') | split: '/'}}</span>
+      <span class="capitalize truncate">
+        {{(router.routerState.snapshot.url | replace: '/' : '') | split: '/'}}
+      </span>
     </div>
   `,
 
