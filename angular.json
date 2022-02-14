@@ -35,7 +35,8 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
-              "src/app/mocks"
+              "src/app/mocks",
+              "src/_redirects"
             ],
             "styles": [
               "src/styles.scss",
