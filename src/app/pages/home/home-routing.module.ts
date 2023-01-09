@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Route, RouterModule } from '@angular/router';
 import {HomeComponent} from "./home.component";
-import {HomeModule} from "./home.module";
 
 const routes: Route[] = [
   {
@@ -13,7 +12,7 @@ const routes: Route[] = [
 @NgModule({
   imports: [
     RouterModule.forChild(routes),
-    HomeModule
+    HomeComponent
   ]
 })
 export class HomeRoutingModule {

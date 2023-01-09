@@ -40,8 +40,7 @@ export class CartService {
 
   removeOneFromCart(product: CartProductOrder): void {
     const cart = this.getCart();
-    // @ts-ignore
-    if (cart.orderProducts?.find(prd => prd.id === product.id)?.quantity > 1) {
+    if (cart.orderProducts?.find(prd => prd.id === product.id)?.quantity || 0 > 1) {
       cart.orderProducts?.map(prd => {
         if (prd.id === product.id) {
           prd.quantity -= 1;

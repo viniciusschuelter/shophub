@@ -40,7 +40,6 @@ export class ProductsService {
   }
 
   sortProductsByRating(): void {
-    console.log(this.getProducts().sort((a, b) => a.rating - b.rating));
     this.productsSubject.next(this.getProducts().sort((a, b) => a.rating - b.rating));
   }
 }
