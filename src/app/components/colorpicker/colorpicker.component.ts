@@ -1,9 +1,12 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {defaultColorsSneakers} from "../../utils/colors.helpers";
+import {NgClass, NgFor} from "@angular/common";
 
 @Component({
-  selector: 'app-colorpicker',
+  standalone: true,
   host: {class: 'd-block'},
+  selector: 'app-colorpicker',
+  imports: [NgFor, NgClass],
   template: `
     <div class="flex flex-nowrap items-center">
       <div *ngFor="let colorItem of listColor"
@@ -15,14 +18,10 @@ import {defaultColorsSneakers} from "../../utils/colors.helpers";
   `
 })
 export class ColorpickerComponent {
-
   @Input() color = '';
   @Input() editable = true;
   @Output() colorChange: EventEmitter<string> = new EventEmitter();
   listColor: string[] = defaultColorsSneakers;
-
-  constructor() {
-  }
 
   changeColor(color: string): void {
     if (!this.editable) {

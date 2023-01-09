@@ -3,7 +3,7 @@ import {CommonModule} from "@angular/common";
 import {NavBarComponent} from "./nav-bar.component";
 import {MenuBarModule} from "../menu-bar/menu-bar.module";
 import {RouterModule} from "@angular/router";
-import {AnimatedButtonModule} from "../animated-button/animated-button.module";
+import {AnimatedButtonComponent} from "../animated-button/animated-button.component";
 
 
 @NgModule({
@@ -13,6 +13,6 @@ import {AnimatedButtonModule} from "../animated-button/animated-button.module";
     CommonModule,
     MenuBarModule,
     RouterModule,
-    AnimatedButtonModule
+    AnimatedButtonComponent
   ]
 }) export class NavBarModule{};

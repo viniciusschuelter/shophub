@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
+  standalone: true,
   selector: 'app-animated-button',
   template: `
     <span class="animated-button cursor-pointer hover:animate-bounce relative">
@@ -20,6 +21,4 @@ import { Component } from '@angular/core';
   `]
 
 })
-export class AnimatedButtonComponent {
-
-}
+export class AnimatedButtonComponent { }
