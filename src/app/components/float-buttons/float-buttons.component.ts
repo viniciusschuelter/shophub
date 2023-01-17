@@ -7,7 +7,6 @@ import { Router} from "@angular/router";
     <app-animated-button class="absolute bottom-4 left-6 z-20">
       <img class="w-6" src="../../../assets/icons/icon-search.svg">
     </app-animated-button>
-    
     <app-animated-button class="absolute bottom-4 right-6 z-20" (click)="goToContact()">
       <img class="w-6" src="../../../assets/icons/icon-message.svg">
     </app-animated-button>
